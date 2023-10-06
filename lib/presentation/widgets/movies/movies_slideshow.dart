@@ -1,13 +1,15 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:flutter/material.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:cinemapedia/domain/entities/movie.dart';
-import 'package:flutter/material.dart';
+
 
 class MoviesSlideshow extends StatelessWidget {
-
+  
   final List<Movie> movies;
+  
   const MoviesSlideshow({
-    super.key,
+    super.key, 
     required this.movies
   });
 
@@ -31,19 +33,18 @@ class MoviesSlideshow extends StatelessWidget {
           )
         ),
         itemCount: movies.length,
-        itemBuilder: (context, index) => _Slide(movie: movies[index]),
+        itemBuilder: (context, index) => _Slide(movie: movies[index] ),
       ),
     );
   }
 }
 
+
 class _Slide extends StatelessWidget {
 
   final Movie movie;
 
-  const _Slide({
-    required this.movie
-  });
+  const _Slide({required this.movie});
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +61,7 @@ class _Slide extends StatelessWidget {
     );
 
     return Padding(
-      padding: const EdgeInsets.only(bottom: 30),
+      padding: const EdgeInsets.only( bottom: 30 ),
       child: DecoratedBox(
         decoration: decoration,
         child: ClipRRect(
@@ -69,14 +70,16 @@ class _Slide extends StatelessWidget {
             movie.backdropPath,
             fit: BoxFit.cover,
             loadingBuilder: (context, child, loadingProgress) {
-              if (loadingProgress != null) {
-                return const DecoratedBox(decoration: BoxDecoration(color: Colors.black12));
+              if ( loadingProgress != null ) {
+                return const DecoratedBox(
+                  decoration: BoxDecoration( color: Colors.black12 )
+                );
               }
               return FadeIn(child: child);
             },
           )
-          ),
+        )
       ),
-      );
+    );
   }
 }

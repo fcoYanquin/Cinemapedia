@@ -1,3 +1,6 @@
+
+
+
 class Actor {
 
   final int id;
@@ -6,10 +9,9 @@ class Actor {
   final String? character;
 
   Actor({
-    required this.id, 
-    required this.name, 
-    required this.profilePath, 
+    required this.id,
+    required this.name,
+    required this.profilePath,
     required this.character
   });
-
 }
